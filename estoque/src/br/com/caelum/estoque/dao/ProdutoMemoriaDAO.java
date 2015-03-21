@@ -42,4 +42,21 @@ public class ProdutoMemoriaDAO implements ProdutoDAO {
 		produtos.add(produto);
 	}
 
+
+	@Override
+	public void remover(Produto produto) {
+		produtos.remove(produto);
+	}
+
+
+	@Override
+	public Integer estoqueAtual(Produto produto) {
+		for (Produto p : produtos) {
+			if(p.getId().equals(produto.getId())) {
+				return p.getQuantidade();
+			}
+		}
+		throw new IllegalArgumentException("Produto nao encontrado");
+	}
+
 }
