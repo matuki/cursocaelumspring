@@ -1,0 +1,7 @@
+INDEX VERSION 1.127
+/home/spring5071/workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2418391535.index
+/estoque/src
+/home/spring5071/workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3390692998.index
+/estoque/src
+/home/spring5071/workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2573949860.index
+/estoque/src

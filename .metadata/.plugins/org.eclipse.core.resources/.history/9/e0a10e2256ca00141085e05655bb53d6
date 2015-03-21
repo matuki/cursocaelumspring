@@ -1,0 +1,10 @@
+package br.com.caelum.estoque;
+
+public class Produto {
+
+	private Long id;
+	
+	private String descricao;
+	
+	private Integer quantidade;
+}
