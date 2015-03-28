@@ -1,8 +1,11 @@
 package br.com.caelum.estoque.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,8 +56,13 @@ public class ProdutosController {
 		return "produtos/form";
 	}
 	
-	@RequestMapping(value="salvar", method=RequestMethod.POST)
-	public String salvar(Produto produto) {
+	@RequestMapping(value="/salvar", method=RequestMethod.POST)
+	@Transactional
+	public String salvar(@Valid Produto produto, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "produtos/form";
+		}
 		produtoDAO.salvar(produto);
 		return "redirect:/produtos/listar";
 	}
@@ -62,7 +70,11 @@ public class ProdutosController {
 	
 	@RequestMapping(value="/alterar", method=RequestMethod.POST)
 	@Transactional
-	public String alterar(Produto produto) {
+	public String alterar(@Valid Produto produto, BindingResult result) {
+		if (result.hasErrors()) {
+			return "produtos/editar";
+		}
+		
 		Movimentacao movimentacao = geradorDeMovimentacao.geraMovimentacao(produto);
 		movimentacaoDao.salvar(movimentacao);
 		produtoDAO.alterar(produto);
