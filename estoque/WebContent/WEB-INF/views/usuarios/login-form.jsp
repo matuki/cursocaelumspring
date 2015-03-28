@@ -11,6 +11,10 @@
 		<h1>Você já está logado</h1>
 	</sec:authorize>
 
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<h1>Olá Admin</h1>
+	</sec:authorize>
+
 
 	<sec:authorize access="isAnonymous()">
 		<form action="/estoque/login" method="post">
