@@ -54,6 +54,9 @@
 		<property name="basename" value="/WEB-INF/i18n/messages" />
 	</bean>
 	
+	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" id="webexpressionHandler">
+	</bean>
+	
 	<security:http auto-config="true">
 	
 		<security:intercept-url pattern="/produtos/**" access="ROLE_USER" />
